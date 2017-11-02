@@ -17,6 +17,13 @@ $(document).ready(function() {
        $("#myModal").css('display',"none");
      });
 
+     $("#slider").click(function(){
+        console.log("clicked it dog");
+         $("#regions_div").toggle()
+         $("#regions_div2").toggle();
+
+     })
+
      window.onclick = function(event) {
        var modal = document.getElementById("myModal");
          if (event.target == modal) {
@@ -30,13 +37,16 @@ function processData(allText) {
     var allTextLines = allText.split(/\r\n|\n/);
     var headers = allTextLines[0].split(',');
     var lines = [];
-    var D = [headers]
+    var D = [[headers[0],headers[1]]];
+    var D2 = [[headers[0],headers[2]]];
 
     for (var i=1; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
         data[0] = "US-" + data[0];
         data[2] = Number(data[2]);
-        D.push(data)
+        console.log(data,[data[0],data[1]]);
+        D.push([data[0],Number(data[1])]);
+        D2.push([data[0],Number(data[2])]);
     }
 
     google.charts.load('current', {
@@ -49,6 +59,7 @@ function processData(allText) {
 
     function drawRegionsMap() {
       var data = google.visualization.arrayToDataTable(D);
+      var data2 = google.visualization.arrayToDataTable(D2);
 
       var options =
         {
@@ -63,6 +74,7 @@ function processData(allText) {
         };
 
       var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+      var chart2 = new google.visualization.GeoChart(document.getElementById('regions_div2'));
 
       function myClickHandler(){
           var selection = chart.getSelection();
@@ -87,28 +99,10 @@ function processData(allText) {
       }
 
       google.visualization.events.addListener(chart, 'select', myClickHandler);
+      google.visualization.events.addListener(chart2, 'select', myClickHandler);
 
       chart.draw(data, options);
+      chart2.draw(data2, options);
     }
     // alert(lines);
 }
-
-
-// Get the modal
-// var modal = document.getElementById('myModal');
-//
-// // Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-//
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//     modal.style.display = "none";
-// }
-//
-// // When the user clicks anywhere outside of the modal, close it

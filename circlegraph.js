@@ -44,7 +44,8 @@ var sketch1 = function(p){
     // p.stroke(255, 255, 128);
     p.translate(p.width / 2, p.height / 2);
     if(selectedState >= 0){
-      p.text(rawData[selectedState],-10,0);
+      p.textSize(30);
+      p.text(rawData[selectedState] + ' women',-100,0);
     }
     p.pop();
 
@@ -126,7 +127,8 @@ var sketch2 = function(p){
     p.push();
     p.translate(p.width / 2, p.height / 2);
     if(selectedState >= 0){
-      p.text(rawData[selectedState],-10,0);
+      p.textSize(30);
+      p.text(rawData[selectedState] + ' women',-100,0);
     }
     p.pop();
 
@@ -207,7 +209,8 @@ var sketch3 = function(p){
     p.push();
     p.translate(p.width / 2, p.height / 2);
     if(selectedState >= 0){
-      p.text(rawData[selectedState],-10,0);
+      p.textSize(30);
+      p.text(rawData[selectedState] + ' women',-100,0);
     }
     p.pop();
 

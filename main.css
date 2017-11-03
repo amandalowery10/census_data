@@ -8,6 +8,9 @@ body{
 h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 20px; letter-spacing: -1px; line-height: 1; text-align: center; }
 h2 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
 h3 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 15; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+h4 { color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 40px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+h5 { color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 25px; letter-spacing: -1px; line-height: 1; text-align: center; }
+h6 { color: white; font-family: 'Helvetica Neue', sans-serif; font-size: 40px; letter-spacing: -1px; line-height: 1; text-align: center; }
 
  #description{
    font-size: 24px;

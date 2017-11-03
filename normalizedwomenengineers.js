@@ -16,9 +16,9 @@ $(document).ready(function() {
          graph_title = !graph_title;
 
           if(graph_title){
-            $("#graph_title").text("Normalized Number of Female Engineers per State");
+            $("#graph_titlez").text("Normalized Number of Female Engineers per State");
           }else{
-            $("#graph_title").text("Absolute Number of Female Engineers per State");
+            $("#graph_titlez").text("Absolute Number of Female Engineers per State");
           }
 
      })

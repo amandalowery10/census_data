@@ -1,4 +1,5 @@
 console.log("h@x3d 8y @m&@!");
+var graph_title = false;
 
 $(document).ready(function() {
     $.ajax({
@@ -8,21 +9,20 @@ $(document).ready(function() {
         success: function(data) {processData(data);}
      });
 
-     $("#myBtn").click(function() {
-        console.log("clicked");
-         $("#myModal").css('display',"block");
-     });
-
-     $(".close").click(function(){
-       $("#myModal").css('display',"none");
-     });
-
      $("#slider").click(function(){
         console.log("clicked it dog");
          $("#regions_div").toggle()
          $("#regions_div2").toggle();
+         graph_title = !graph_title;
+
+          if(graph_title){
+            $("#graph_title").text("Normalized Number of Female Engineers per State");
+          }else{
+            $("#graph_title").text("Absolute Number of Female Engineers per State");
+          }
 
      })
+
 
      window.onclick = function(event) {
        var modal = document.getElementById("myModal");
@@ -42,7 +42,7 @@ function processData(allText) {
 
     for (var i=1; i<allTextLines.length; i++) {
         var data = allTextLines[i].split(',');
-        data[0] = "US-" + data[0];
+        // data[0] =  data[0];
         data[2] = Number(data[2]);
         console.log(data,[data[0],data[1]]);
         D.push([data[0],Number(data[1])]);
@@ -66,7 +66,7 @@ function processData(allText) {
             region: "US",
             resolution: "provinces",
             colorAxis: {colors: ['#ffffff','#ef3b36']},
-            backgroundColor: '#00d2ff',
+            backgroundColor: '#000000',
             datalessRegionColor: '#000000',
             defaultColor: '#f5f5f5',
             height:"450",
@@ -78,8 +78,8 @@ function processData(allText) {
 
       function myClickHandler(){
           var selection = chart.getSelection();
-          console.log(selection);
-          console.log(D[selection[0].row+1]);
+          // console.log(selection);
+          // console.log(D[selection[0].row+1]);
           var message = '';
           for (var i = 0; i < selection.length; i++) {
               var item = selection[i];
@@ -95,11 +95,39 @@ function processData(allText) {
               message = 'nothing';
           }
           // alert('You selected ' + message);
-          selectedState = item.row;
+          console.log(selection[0].row);
+          console.log("selected state before:",selectedState);
+          selectedState = selection[0].row;
+          console.log("selected state after:",selectedState);
+      }
+
+      function myClickHandler2(){
+          var selection = chart2.getSelection();
+          // console.log(selection);
+          // console.log(D[selection[0].row+1]);
+          var message = '';
+          for (var i = 0; i < selection.length; i++) {
+              var item = selection[i];
+              if (item.row != null && item.column != null) {
+                  message += '{row:' + item.row + ',column:' + item.column + '}';
+              } else if (item.row != null) {
+                  message += '{row:' + item.row + '}';
+              } else if (item.column != null) {
+                  message += '{column:' + item.column + '}';
+              }
+          }
+          if (message == '') {
+              message = 'nothing';
+          }
+          // alert('You selected ' + message);
+          console.log(selection[0].row);
+          console.log("selected state before:",selectedState);
+          selectedState = selection[0].row;
+          console.log("selected state after:",selectedState);
       }
 
       google.visualization.events.addListener(chart, 'select', myClickHandler);
-      google.visualization.events.addListener(chart2, 'select', myClickHandler);
+      google.visualization.events.addListener(chart2, 'select', myClickHandler2);
 
       chart.draw(data, options);
       chart2.draw(data2, options);

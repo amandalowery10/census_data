@@ -36,7 +36,7 @@ var sketch1 = function(p){
 
   p.draw = function () {
     // p.background(43, 53, 63);
-    p.background(255, 255, 255);
+    p.background(0, 0, 0);
     p.fill(139, 171, 203);
     p.stroke(89, 86, 74);
 
@@ -63,7 +63,7 @@ var sketch1 = function(p){
     for (var i = 0; i < data.length; i = i + 1) {
       p.push();
       if(i == selectedState){
-        p.fill(100, 100, 100);
+        p.fill(253, 69, 69);
         p.stroke(89, 86, 74);
 
       }
@@ -75,7 +75,7 @@ var sketch1 = function(p){
       p.rect(0, offset, angleSeparation*2, animatedHeight);
       // text(Math.floor(currentData), offset-20, 0);
 
-      p.text(i+1, 0,offset-10);
+      // p.text(i+1, 0,offset-10);
 
       p.pop();
     }
@@ -119,7 +119,7 @@ var sketch2 = function(p){
 
   p.draw = function () {
     // p.background(43, 53, 63);
-    p.background(255, 255, 255);
+    p.background(0, 0, 0);
     p.fill(139, 171, 203);
     p.stroke(89, 86, 74);
 
@@ -145,7 +145,7 @@ var sketch2 = function(p){
     for (var i = 0; i < data.length; i = i + 1) {
       p.push();
       if(i == selectedState){
-        p.fill(100, 100, 100);
+        p.fill(253, 69, 69);
         p.stroke(89, 86, 74);
 
       }
@@ -156,7 +156,7 @@ var sketch2 = function(p){
       p.rotate(angleSeparation * i + -90);
       p.rect(0, offset, angleSeparation*2, animatedHeight);
       // text(Math.floor(currentData), offset-20, 0);
-      p.text(i+1, 0,offset-10);
+      // p.text(i+1, 0,offset-10);
 
       p.pop();
     }
@@ -200,7 +200,7 @@ var sketch3 = function(p){
 
   p.draw = function () {
     // p.background(43, 53, 63);
-    p.background(255, 255, 255);
+    p.background(0, 0, 0);
     p.fill(139, 171, 203);
     p.stroke(89, 86, 74);
 
@@ -226,7 +226,7 @@ var sketch3 = function(p){
     for (var i = 0; i < data.length; i = i + 1) {
       p.push();
       if(i == selectedState){
-        p.fill(100, 100, 100);
+        p.fill(253, 69, 69);
         p.stroke(89, 86, 74);
 
       }
@@ -237,7 +237,7 @@ var sketch3 = function(p){
       p.rotate(angleSeparation * i + -90);
       p.rect(0, offset, angleSeparation*2, animatedHeight);
       // text(Math.floor(currentData), offset-20, 0);
-      p.text(i+1, 0,offset-10);
+      // p.text(i+1, 0,offset-10);
 
       p.pop();
     }

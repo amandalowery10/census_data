@@ -51,6 +51,10 @@ function processData(allText) {
     // alert(lines);
 }
 
-// function drawTitle(){
-//
-// }
+function drawTitle(){
+
+  s = "The quick brown fox jumped over the lazy dog.";
+  fill(255);
+  text(s, 10, 10, 70, 80); // Text wraps within text box
+
+}
